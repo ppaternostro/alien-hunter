@@ -1,5 +1,7 @@
-import java.awt.*;
-import java.io.*;
+package com.pasquasoft.games.hunter;
+import java.awt.Graphics;
+import java.awt.Rectangle;
+import java.io.IOException;
 
 public class Entity
 {
@@ -19,7 +21,8 @@ public class Entity
   private int spriteWidth;
   private int spriteHeight;
 
-  public Entity(String ref, int boundsWidth, int boundsHeight) throws IOException
+  public Entity(String ref, int boundsWidth, int boundsHeight)
+      throws IOException
   {
     int derivedX = (int) (Math.random() * boundsWidth);
     int derivedY = (int) (Math.random() * boundsHeight);
@@ -32,15 +35,17 @@ public class Entity
     spriteWidth = sprite.getWidth();
     spriteHeight = sprite.getHeight();
 
-    derivedX = derivedX + spriteWidth > boundsWidth ? derivedX - spriteWidth : derivedX;
-    derivedY = derivedY + spriteHeight > boundsHeight ? derivedY - spriteHeight : derivedY;
+    derivedX = derivedX + spriteWidth > boundsWidth ? derivedX - spriteWidth
+        : derivedX;
+    derivedY = derivedY + spriteHeight > boundsHeight ? derivedY - spriteHeight
+        : derivedY;
 
-    rectangle = new Rectangle(derivedX,derivedY,spriteWidth,spriteHeight);
+    rectangle = new Rectangle(derivedX, derivedY, spriteWidth, spriteHeight);
   }
 
   public void draw(Graphics g)
   {
-    sprite.draw(g,rectangle.x,rectangle.y);
+    sprite.draw(g, rectangle.x, rectangle.y);
   }
 
   public void move()
@@ -87,6 +92,6 @@ public class Entity
 
   public boolean isHit(int x, int y)
   {
-    return rectangle.contains(x,y);
+    return rectangle.contains(x, y);
   }
 }

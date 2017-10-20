@@ -1,20 +1,22 @@
-import java.awt.*;
-import java.awt.image.*;
+package com.pasquasoft.games.hunter;
+import java.awt.GraphicsConfiguration;
+import java.awt.GraphicsEnvironment;
+import java.awt.Image;
+import java.awt.Transparency;
+import java.awt.image.BufferedImage;
+import java.io.IOException;
+import java.net.URL;
+import java.util.HashMap;
+import java.util.Map;
 
-import java.io.*;
-
-import java.net.*;
-
-import java.util.*;
-
-import javax.imageio.*;
+import javax.imageio.ImageIO;
 
 /**
  * A class that caches <code>Sprite</code> references.
  *
- * @author    Pat Paternostro
- * @version   v1.0
- * @see       Sprite
+ * @author Pat Paternostro
+ * @version v1.0
+ * @see Sprite
  */
 public final class SpriteCache
 {
@@ -26,7 +28,7 @@ public final class SpriteCache
   /**
    * The sprite cache.
    */
-  private HashMap sprites = new HashMap();
+  private Map<String, Sprite> sprites = new HashMap<String, Sprite>();
 
   /**
    * Prevent instantiation outside of this class.
@@ -38,7 +40,7 @@ public final class SpriteCache
   /**
    * Retrieves a singleton reference to this object.
    *
-   * @return    a singleton reference to this object
+   * @return a singleton reference to this object
    */
   public static synchronized SpriteCache getInstance()
   {
@@ -51,9 +53,9 @@ public final class SpriteCache
   /**
    * Retrieves a sprite (from the cache if available).
    *
-   * @param   ref the sprite's image reference
-   * @return  a sprite instance
-   * @throws  IOException if the sprite could not be loaded
+   * @param ref the sprite's image reference
+   * @return a sprite instance
+   * @throws IOException if the sprite could not be loaded
    */
   public Sprite getSprite(String ref) throws IOException
   {
@@ -75,17 +77,20 @@ public final class SpriteCache
       sourceImage = ImageIO.read(url);
 
       /* Create an accelerated image of the right size to store our sprite */
-      GraphicsConfiguration gc = GraphicsEnvironment.getLocalGraphicsEnvironment().getDefaultScreenDevice().getDefaultConfiguration();
-      Image image = gc.createCompatibleImage(sourceImage.getWidth(),sourceImage.getHeight(),Transparency.BITMASK);
+      GraphicsConfiguration gc = GraphicsEnvironment
+          .getLocalGraphicsEnvironment().getDefaultScreenDevice()
+          .getDefaultConfiguration();
+      Image image = gc.createCompatibleImage(sourceImage.getWidth(),
+          sourceImage.getHeight(), Transparency.BITMASK);
 
       /* Draw our source image into the accelerated image */
-      image.getGraphics().drawImage(sourceImage,0,0,null);
+      image.getGraphics().drawImage(sourceImage, 0, 0, null);
 
       /* Create the sprite */
       sprite = new Sprite(image);
 
       /* Add to the cache */
-      sprites.put(ref,sprite);
+      sprites.put(ref, sprite);
     }
 
     return sprite;

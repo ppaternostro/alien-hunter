@@ -1,4 +1,6 @@
-import java.awt.*;
+package com.pasquasoft.games.hunter;
+import java.awt.Graphics;
+import java.awt.Image;
 
 public class Sprite
 {
