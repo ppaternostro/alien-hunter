@@ -1,4 +1,5 @@
 package com.pasquasoft.games.hunter;
+
 import java.awt.Graphics;
 import java.awt.Rectangle;
 import java.io.IOException;
@@ -35,9 +36,11 @@ public class Entity
     spriteWidth = sprite.getWidth();
     spriteHeight = sprite.getHeight();
 
-    derivedX = derivedX + spriteWidth > boundsWidth ? derivedX - spriteWidth
+    derivedX = derivedX + spriteWidth > boundsWidth
+        ? derivedX - spriteWidth
         : derivedX;
-    derivedY = derivedY + spriteHeight > boundsHeight ? derivedY - spriteHeight
+    derivedY = derivedY + spriteHeight > boundsHeight
+        ? derivedY - spriteHeight
         : derivedY;
 
     rectangle = new Rectangle(derivedX, derivedY, spriteWidth, spriteHeight);

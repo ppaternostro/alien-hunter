@@ -1,4 +1,5 @@
 package com.pasquasoft.games.hunter;
+
 import java.awt.BorderLayout;
 import java.awt.Container;
 import java.awt.Dimension;
@@ -238,7 +239,7 @@ public class AlienHunterFrame extends JFrame implements ActionListener
     else if (obj == helpAbout)
     {
       JOptionPane.showMessageDialog(this,
-          "<html><center>Alien Hunter<br>Pat Paternostro<br>Copyright � 2004</center></html>",
+          "<html><center>Alien Hunter<br>Pat Paternostro<br>Copyright &copy; 2004</center></html>",
           "About", JOptionPane.INFORMATION_MESSAGE);
     }
   }

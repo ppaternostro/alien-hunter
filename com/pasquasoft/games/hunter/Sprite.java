@@ -1,4 +1,5 @@
 package com.pasquasoft.games.hunter;
+
 import java.awt.Graphics;
 import java.awt.Image;
 
@@ -13,7 +14,7 @@ public class Sprite
 
   public void draw(Graphics g, int x, int y)
   {
-    g.drawImage(image,x,y,null);
+    g.drawImage(image, x, y, null);
   }
 
   public int getWidth()

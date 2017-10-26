@@ -1,4 +1,5 @@
 package com.pasquasoft.games.hunter;
+
 import java.awt.GraphicsConfiguration;
 import java.awt.GraphicsEnvironment;
 import java.awt.Image;

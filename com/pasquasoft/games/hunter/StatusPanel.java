@@ -1,4 +1,5 @@
 package com.pasquasoft.games.hunter;
+
 import java.awt.GridLayout;
 
 import javax.swing.BorderFactory;

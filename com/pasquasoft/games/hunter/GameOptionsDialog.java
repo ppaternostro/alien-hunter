@@ -1,8 +1,10 @@
 package com.pasquasoft.games.hunter;
+
 import java.awt.BorderLayout;
 import java.awt.Container;
-import java.awt.FlowLayout;
-import java.awt.GridLayout;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
+import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
@@ -63,13 +65,19 @@ public class GameOptionsDialog extends JDialog implements ActionListener
     /* Components should be added to the container's content pane */
     Container cp = getContentPane();
 
-    center.setLayout(new GridLayout(3, 2));
-    south.setLayout(new FlowLayout());
+    GridBagLayout gbl = new GridBagLayout();
+    GridBagConstraints gbc = new GridBagConstraints();
 
-    center.add(new JLabel("Number of aliens: "));
-    center.add(aliens);
-    center.add(new JLabel("Game time limit: "));
-    center.add(timeLimit);
+    gbc.fill = GridBagConstraints.HORIZONTAL;
+    gbc.insets = new Insets(3, 3, 3, 3);
+
+    center.setLayout(gbl);
+    center.add(new JLabel("Number of aliens: "),
+        constraintsHelper(gbc, 0, 0));
+    center.add(aliens, constraintsHelper(gbc, 1, 0));
+    center.add(new JLabel("Game time limit: "),
+        constraintsHelper(gbc, 0, 1));
+    center.add(timeLimit, constraintsHelper(gbc, 1, 1));
 
     south.add(save);
     south.add(cancel);
@@ -115,7 +123,7 @@ public class GameOptionsDialog extends JDialog implements ActionListener
     });
 
     /* Size the dialog */
-    setSize(250, 140);
+    pack();
 
     /* Don't allow resize */
     setResizable(false);
@@ -125,6 +133,14 @@ public class GameOptionsDialog extends JDialog implements ActionListener
 
     /* Show the dialog */
     setVisible(true);
+  }
+
+  private Object constraintsHelper(GridBagConstraints gbc, int x, int y)
+  {
+    gbc.gridx = x;
+    gbc.gridy = y;
+
+    return gbc;
   }
 
   public void actionPerformed(ActionEvent evt)
