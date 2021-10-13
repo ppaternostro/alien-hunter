@@ -24,7 +24,7 @@ public class GameCanvas extends Canvas implements Runnable
    * Generated serial version UID.
    */
   private static final long serialVersionUID = 7508520413599935038L;
-  private static final int FPS = 80; /* Frames per second */
+  private static final int FPS = 40; /* Frames per second */
   private static final int PERIOD = 1000 / FPS; /* 1000 ms divided by FPS */
 
   private Thread thread;
@@ -86,9 +86,7 @@ public class GameCanvas extends Canvas implements Runnable
 
   public void update(Graphics g)
   {
-    /* Clear the offscreen graphics context */
-    offscreenG.setColor(Color.BLACK);
-    offscreenG.fillRect(0, 0, width, height);
+    clear();
 
     /* Draw the aliens */
     Iterator<Entity> iter = aliens.iterator();
@@ -128,6 +126,13 @@ public class GameCanvas extends Canvas implements Runnable
     g.drawImage(offscreenImage, 0, 0, width, height, this);
   }
 
+  public void clear()
+  {
+    /* Clear the offscreen graphics context */
+    offscreenG.setColor(Color.BLACK);
+    offscreenG.fillRect(0, 0, width, height);
+  }
+
   public void start(int alienNumber)
   {
     /* Load the aliens */
@@ -161,6 +166,10 @@ public class GameCanvas extends Canvas implements Runnable
     paused = false;
 
     over = true;
+
+    clear();
+
+    repaint();
 
     aliens.clear();
   }
