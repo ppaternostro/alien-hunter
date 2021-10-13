@@ -72,11 +72,9 @@ public class GameOptionsDialog extends JDialog implements ActionListener
     gbc.insets = new Insets(3, 3, 3, 3);
 
     center.setLayout(gbl);
-    center.add(new JLabel("Number of aliens: "),
-        constraintsHelper(gbc, 0, 0));
+    center.add(new JLabel("Number of aliens: "), constraintsHelper(gbc, 0, 0));
     center.add(aliens, constraintsHelper(gbc, 1, 0));
-    center.add(new JLabel("Game time limit: "),
-        constraintsHelper(gbc, 0, 1));
+    center.add(new JLabel("Game time limit: "), constraintsHelper(gbc, 0, 1));
     center.add(timeLimit, constraintsHelper(gbc, 1, 1));
 
     south.add(save);
@@ -90,8 +88,7 @@ public class GameOptionsDialog extends JDialog implements ActionListener
     cancel.addActionListener(this);
 
     aliens.setDocument(new PlainDocument() {
-      public void insertString(int offset, String str, AttributeSet as)
-          throws BadLocationException
+      public void insertString(int offset, String str, AttributeSet as) throws BadLocationException
       {
         try
         {
@@ -159,8 +156,7 @@ public class GameOptionsDialog extends JDialog implements ActionListener
       }
       catch (BackingStoreException bse)
       {
-        JOptionPane.showMessageDialog(this,
-            "<html><center>" + bse.getMessage() + "</center></html>", "Error",
+        JOptionPane.showMessageDialog(this, "<html><center>" + bse.getMessage() + "</center></html>", "Error",
             JOptionPane.ERROR_MESSAGE);
       }
 

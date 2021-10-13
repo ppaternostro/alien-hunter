@@ -51,8 +51,7 @@ public class AlienHunterFrame extends JFrame implements ActionListener
   private JMenuItem gameExit = new JMenuItem("Exit");
   private JMenuItem helpAbout = new JMenuItem("About...");
 
-  private StatusPanel statusBar = new StatusPanel(
-      new String[] { "Time Limit: 00:00", "Aliens: 0" });
+  private StatusPanel statusBar = new StatusPanel(new String[] { "Time Limit: 00:00", "Aliens: 0" });
 
   private Preferences preferences = Preferences.systemRoot();
 
@@ -170,8 +169,7 @@ public class AlienHunterFrame extends JFrame implements ActionListener
 
       gameTimer = new java.util.Timer();
       gameTimer.schedule(new GameTask(),
-          new Date(gameDuration = System.currentTimeMillis()
-              + (gameTimeLimit = gameTimeLimit())));
+          new Date(gameDuration = System.currentTimeMillis() + (gameTimeLimit = gameTimeLimit())));
 
       statusTimer = new java.util.Timer();
       statusTimer.scheduleAtFixedRate(new StatusTask(), 0, 1000);
@@ -222,8 +220,7 @@ public class AlienHunterFrame extends JFrame implements ActionListener
 
       /* Canceled timers cannot schedule new tasks */
       gameTimer = new java.util.Timer();
-      gameTimer.schedule(new GameTask(),
-          new Date(gameDuration = System.currentTimeMillis() + timeLeft));
+      gameTimer.schedule(new GameTask(), new Date(gameDuration = System.currentTimeMillis() + timeLeft));
 
       statusTimer = new java.util.Timer();
       statusTimer.scheduleAtFixedRate(new StatusTask(), 0, 1000);
@@ -239,8 +236,8 @@ public class AlienHunterFrame extends JFrame implements ActionListener
     else if (obj == helpAbout)
     {
       JOptionPane.showMessageDialog(this,
-          "<html><center>Alien Hunter<br>Pat Paternostro<br>Copyright &copy; 2004</center></html>",
-          "About", JOptionPane.INFORMATION_MESSAGE);
+          "<html><center>Alien Hunter<br>Pat Paternostro<br>Copyright &copy; 2004</center></html>", "About",
+          JOptionPane.INFORMATION_MESSAGE);
     }
   }
 
@@ -271,8 +268,7 @@ public class AlienHunterFrame extends JFrame implements ActionListener
 
       AlienHunterFrame.this.gameStop.doClick();
 
-      JOptionPane.showMessageDialog(AlienHunterFrame.this,
-          "Better luck next time!", "Alien Hunter",
+      JOptionPane.showMessageDialog(AlienHunterFrame.this, "Better luck next time!", "Alien Hunter",
           JOptionPane.INFORMATION_MESSAGE);
     }
   }
@@ -285,21 +281,18 @@ public class AlienHunterFrame extends JFrame implements ActionListener
       long seconds = gameTimeLimit / 1000 % 60;
 
       /* Update the status area */
-      statusBar.setStatusSection(0,
-          "Time Limit: " + (minutes < 10 ? "0" + minutes : "" + minutes) + ":"
-              + (seconds < 10 ? "0" + seconds : "" + seconds));
+      statusBar.setStatusSection(0, "Time Limit: " + (minutes < 10 ? "0" + minutes : "" + minutes) + ":"
+          + (seconds < 10 ? "0" + seconds : "" + seconds));
 
       statusBar.setStatusSection(1, "Aliens: " + canvas.getAlienCount());
 
       gameTimeLimit -= 1000;
 
-      if (AlienHunterFrame.this.canvas.getAlienCount() == 0
-          && gameTimeLimit > 0)
+      if (AlienHunterFrame.this.canvas.getAlienCount() == 0 && gameTimeLimit > 0)
       {
         AlienHunterFrame.this.gameStop.doClick();
 
-        JOptionPane.showMessageDialog(AlienHunterFrame.this,
-            "Congratulations! You saved the universe!", "Alien Hunter",
+        JOptionPane.showMessageDialog(AlienHunterFrame.this, "Congratulations! You saved the universe!", "Alien Hunter",
             JOptionPane.INFORMATION_MESSAGE);
       }
     }
