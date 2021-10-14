@@ -24,7 +24,7 @@ public final class SpriteCache
   /**
    * A singleton reference to this object.
    */
-  private static SpriteCache spriteCache;
+  private static final SpriteCache INSTANCE = new SpriteCache();
 
   /**
    * The sprite cache.
@@ -45,10 +45,7 @@ public final class SpriteCache
    */
   public static synchronized SpriteCache getInstance()
   {
-    if (spriteCache == null)
-      spriteCache = new SpriteCache();
-
-    return spriteCache;
+    return INSTANCE;
   }
 
   /**
