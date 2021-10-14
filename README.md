@@ -11,7 +11,7 @@ This is necessary as the application will attempt to persist application prefere
 
 # How to Play
 
-Choose the **Game->Start** menu item to start the game. There are menu items under the **Game** menu to **Pause**, **Stop**, and **Resume** the game. The **Game->Game Options...** menu item will display the below dialog which allows the user to set game options for the number of aliens and time limit. The maximum number of aliens allowed is 99 and the time limit max is 99:99.
+Choose the **Game->Start** menu item to start the game. There are menu items under the **Game** menu to **Pause**, **Stop**, and **Resume** the game. The **Game->Game Options...** menu item will display the below dialog which allows the user to set game options for the number of aliens and time limit. The maximum number of aliens allowed is 99 and the time limit max is 59:59 (59 minutes 59 seconds).
 
 ![Game Options](https://user-images.githubusercontent.com/32653184/137032127-fe2ec26e-506e-4e06-9454-d5ec7c16a9e5.png)
 

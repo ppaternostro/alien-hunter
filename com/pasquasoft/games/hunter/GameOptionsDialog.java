@@ -33,6 +33,8 @@ public class GameOptionsDialog extends JDialog implements ActionListener
    */
   private static final long serialVersionUID = -3906539045865403753L;
 
+  private static final String TIME_REGEX = "^(?:[012345]\\d):(?:[012345]\\d)$";
+
   private JPanel center = new JPanel();
   private JPanel south = new JPanel();
 
@@ -146,21 +148,32 @@ public class GameOptionsDialog extends JDialog implements ActionListener
 
     if (obj == save)
     {
-      /* Save preferences */
-      preferences.put("AlienHunter.aliens", aliens.getText());
-      preferences.put("AlienHunter.timeLimit", timeLimit.getText());
+      String aliensText = aliens.getText();
+      String timeLimitText = timeLimit.getText();
 
-      try
+      if (timeLimitText.matches(TIME_REGEX) && !timeLimitText.equals("00:00") && !aliensText.equals("0")
+          && !aliensText.equals("00") && !aliensText.equals(""))
       {
-        preferences.flush();
-      }
-      catch (BackingStoreException bse)
-      {
-        JOptionPane.showMessageDialog(this, "<html><center>" + bse.getMessage() + "</center></html>", "Error",
-            JOptionPane.ERROR_MESSAGE);
-      }
+        /* Save preferences */
+        preferences.put("AlienHunter.aliens", aliensText);
+        preferences.put("AlienHunter.timeLimit", timeLimitText);
 
-      dispatchEvent(new WindowEvent(this, WindowEvent.WINDOW_CLOSING));
+        try
+        {
+          preferences.flush();
+        }
+        catch (BackingStoreException bse)
+        {
+          JOptionPane.showMessageDialog(this, "<html><center>" + bse.getMessage() + "</center></html>", "Error",
+              JOptionPane.ERROR_MESSAGE);
+        }
+
+        dispatchEvent(new WindowEvent(this, WindowEvent.WINDOW_CLOSING));
+      }
+      else
+      {
+        JOptionPane.showMessageDialog(this, "Invalid aliens or time limit!", "Error", JOptionPane.ERROR_MESSAGE);
+      }
     }
     else if (obj == cancel)
     {
