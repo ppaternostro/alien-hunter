@@ -43,7 +43,7 @@ public final class SpriteCache
    *
    * @return a singleton reference to this object
    */
-  public static synchronized SpriteCache getInstance()
+  public static SpriteCache getInstance()
   {
     return INSTANCE;
   }
