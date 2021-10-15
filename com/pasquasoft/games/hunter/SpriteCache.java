@@ -58,7 +58,7 @@ public final class SpriteCache
   public Sprite getSprite(String ref) throws IOException
   {
     /* Check cache first */
-    Sprite sprite = (Sprite) sprites.get(ref);
+    Sprite sprite = sprites.get(ref);
 
     /* Load the sprite */
     if (sprite == null)
