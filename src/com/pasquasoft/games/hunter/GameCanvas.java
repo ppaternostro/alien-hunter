@@ -140,7 +140,7 @@ public class GameCanvas extends Canvas implements Runnable
     {
       try
       {
-        Entity entity = new Entity("alien.gif", width, height);
+        Entity entity = new Entity("images/alien.gif", width, height);
 
         aliens.add(entity);
       }
