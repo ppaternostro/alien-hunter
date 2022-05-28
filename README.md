@@ -15,7 +15,7 @@ Choose the **Game->Start** menu item to start the game. There are menu items und
 
 ![Game Options](https://user-images.githubusercontent.com/32653184/137032127-fe2ec26e-506e-4e06-9454-d5ec7c16a9e5.png)
 
-Minimizing the window will pause a started game. Deiconifying the window will resume a paused game.
+Minimizing the main window will pause a started game. Deiconifying the main window will resume a paused game.
 
 Use the mouse pointer to click on the flying aliens to destroy them. You win the game when all aliens are destroyed before the time limit expires.
 
