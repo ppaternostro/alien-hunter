@@ -49,7 +49,6 @@ public class GameOptionsDialog extends JDialog implements ActionListener
 
   private Preferences preferences;
 
-  @SuppressWarnings("serial")
   public GameOptionsDialog(JFrame owner)
   {
     super(owner, "Game Options", true);
