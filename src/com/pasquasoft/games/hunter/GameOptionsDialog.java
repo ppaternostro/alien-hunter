@@ -107,7 +107,7 @@ public class GameOptionsDialog extends JDialog implements ActionListener
       }
     });
 
-    preferences = Preferences.systemRoot();
+    preferences = Preferences.userNodeForPackage(AlienHunter.class);
 
     aliens.setText(preferences.get("AlienHunter.aliens", "10"));
     timeLimit.setValue(preferences.get("AlienHunter.timeLimit", "01:00"));

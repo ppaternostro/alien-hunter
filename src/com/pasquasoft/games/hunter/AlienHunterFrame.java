@@ -53,7 +53,7 @@ public class AlienHunterFrame extends JFrame implements ActionListener
 
   private StatusPanel statusBar = new StatusPanel(new String[] { "Time Limit: 00:00", "Aliens: 0" });
 
-  private Preferences preferences = Preferences.systemRoot();
+  private Preferences preferences = Preferences.userNodeForPackage(AlienHunter.class);
 
   private JPanel center = new JPanel();
 
