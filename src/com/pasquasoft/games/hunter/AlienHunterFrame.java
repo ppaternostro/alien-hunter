@@ -236,7 +236,7 @@ public class AlienHunterFrame extends JFrame implements ActionListener
     else if (obj == helpAbout)
     {
       JOptionPane.showMessageDialog(this,
-          "<html><center>Alien Hunter<br>Pat Paternostro<br>Copyright &copy; 2004-2021</center></html>", "About",
+          "<html><center>Alien Hunter<br>Pat Paternostro<br>Copyright &copy; 2004-2026</center></html>", "About",
           JOptionPane.INFORMATION_MESSAGE);
     }
   }

@@ -16,7 +16,22 @@ Use the mouse pointer to click on the flying aliens to destroy them. You win the
 
 The application's status bar displays the remaining time and aliens during game play.
 
+## Build
+
+To build the application, in the project's root folder, execute the following from a terminal window
+
+> mvnw package (use **./mvnw** for Unix/Linux based OSes)
+
+The command will create the following executable JAR file in the project's root folder **target** directory.
+
+- alien-hunter-0.0.1-SNAPSHOT.jar
+
+Run the following from the terminal window to execute the application.
+
+```bash
+java -jar alien-hunter-0.0.1-SNAPSHOT.jar
+```
+
 ## Screenshot
 
 ![Alien Hunter](https://user-images.githubusercontent.com/32653184/137034536-8c6270bf-0364-4063-aec3-3d3541a33ce3.png)
-
